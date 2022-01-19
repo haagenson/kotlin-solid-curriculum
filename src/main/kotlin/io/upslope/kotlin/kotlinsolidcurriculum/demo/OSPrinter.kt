@@ -1,3 +1,5 @@
+package io.upslope.kotlin.kotlinsolidcurriculum.demo
+
 import org.springframework.boot.system.SystemProperties
 
 fun main(args: Array<String>) {
