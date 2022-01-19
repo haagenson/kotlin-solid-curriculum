@@ -8,6 +8,8 @@ fun main(args: Array<String>) {
     SingleResponsibility().doStuff("https://google.com")
 }
 
+// TODO: return the title, optionally
+// move the println to the main
 
 class SingleResponsibility {
 
