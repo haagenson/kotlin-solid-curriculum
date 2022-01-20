@@ -37,7 +37,7 @@ private class LinuxWriter: Writer {
 
 private class MacWriter: Writer {
     override fun write(msg: String) {
-        if (SystemProperties.get("OS") == "MAC>") {
+        if (SystemProperties.get("OS") == "MAC") {
             print(msg + " from Mac World\n\n\n")
         }
     }

@@ -48,4 +48,3 @@ private class MacWriter : Writer {
         return SystemProperties.get("OS") == "MAC"
     }
 }
-

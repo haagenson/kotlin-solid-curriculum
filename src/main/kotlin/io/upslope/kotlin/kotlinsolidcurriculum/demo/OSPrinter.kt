@@ -17,7 +17,7 @@ class OSPrinter {
             print(msg + " from Linux Land\r")
         }
 
-        if (SystemProperties.get("OS") == "MAC>") {
+        if (SystemProperties.get("OS") == "MAC") {
             print(msg + " from Mac World\n\n\n")
         }
     }
