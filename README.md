@@ -54,7 +54,7 @@ If you design your software well, you'll theoretically be able to respond to cha
 
 SOLID only matters when it's time to change something. For some things the cost of change now vs the cost of change later is the same.
 
-For example, if you reflexively create an interface called `Parser`, and a class called `ParserImpl`, you're doing it wrong.
+For example, if you reflexively create an interface named `Parser` and class named `ParserImpl`, then you are prematurely adding complexity.
 
 SOLID should never lead you to creating unnecessary abstractions or unnecessarily complex code.
 
@@ -93,22 +93,23 @@ Note that this does _not_ say "a class should only do one thing".
 
 Some things to watch out for:
 
-**Mixing plumbing with business logic**
+- Mixing plumbing with business logic
+- IO operations
 
-IO operations are one of the big things to watch out for.
+Imagine you have code that:
 
-Let's say you have code that:
+- Reads configuration values from a configuration file
+- Uses the configured values to perform a calculation
 
-- Reads configuration for a configuration file
-- Uses those config values to make a calculation
+There are many reasons the configuration code could change:
 
-There are lots of reasons the configuration code could change:
-- Variables could be added/changed/removed from the config
-- The location of the config file could change
-- The format of the config file could change
-- The way config is loaded could change (it could come from a database, or environment variables etc...)
+- Variables could be added/changed/removed from the configuration
+- The location of the configuration file could change
+- The format of the configuration file could change
+- The way configuration is loaded could change (e.g. it could come from a database, environment variables, etc.)
 
 Then there are reasons that the calculation code could change:
+
 - PO changes business rules in a user stories
 
 Decoupling IO is so common that there are dedicated techniques like [functional core, imperative shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell).
