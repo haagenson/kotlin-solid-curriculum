@@ -1,4 +1,4 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.demo.printerexample1
+package io.upslope.solid.demo.printerexample1
 
 
 import org.springframework.boot.system.SystemProperties

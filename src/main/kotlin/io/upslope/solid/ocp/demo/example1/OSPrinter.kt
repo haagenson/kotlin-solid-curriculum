@@ -1,4 +1,4 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.demo
+package io.upslope.solid.ocp.demo.example1
 
 import org.springframework.boot.system.SystemProperties
 

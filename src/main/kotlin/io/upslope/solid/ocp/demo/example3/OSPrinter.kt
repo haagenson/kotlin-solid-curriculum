@@ -1,22 +1,25 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.demo.printerexample3
+package io.upslope.solid.demo.printerexample2
 
 import org.springframework.boot.system.SystemProperties
-import org.springframework.stereotype.Component
 
-@Component
-class OSPrinter(private val writers: List<Writer>) {
+fun main(args: Array<String>) {
+    val writers = listOf(WindowsWriter(), LinuxWriter(), MacWriter())
+    val osPrinter = OSPrinter(writers);
+    osPrinter.write("Hello, world!")
+}
+
+private class OSPrinter(private val writers: List<Writer>) {
     fun write(msg: String) {
         writers.find { it.applies() }?.write(msg)
     }
 }
 
-interface Writer {
+private interface Writer {
     fun write(msg: String)
     fun applies(): Boolean
 }
 
-@Component
-class WindowsWriter : Writer {
+private class WindowsWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Windows\n")
     }
@@ -26,8 +29,7 @@ class WindowsWriter : Writer {
     }
 }
 
-@Component
-class LinuxWriter : Writer {
+private class LinuxWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Linux Land\r")
     }
@@ -37,8 +39,7 @@ class LinuxWriter : Writer {
     }
 }
 
-@Component
-class MacWriter : Writer {
+private class MacWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Mac World\n\n\n")
     }

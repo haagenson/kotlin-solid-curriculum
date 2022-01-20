@@ -1,15 +1,12 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.demo
+package io.upslope.solid.srp.demo.example2
 
+import org.springframework.stereotype.Component
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.stream.Collectors
 
-fun main(args: Array<String>) {
-    val title = SingleResponsibility().retrieveTitle("https://google.com")
-    println(title)
-}
-
-class SingleResponsibility {
+@Component("RefactoredTitleService")
+class TitleService(private val htmlParser: HTMLParser) {
 
     fun retrieveTitle(pathOrUrl: String): String? {
         val url = URL(pathOrUrl)
@@ -17,9 +14,9 @@ class SingleResponsibility {
         with(url.openConnection() as HttpURLConnection) {
             requestMethod = "GET"
             val contents = inputStream.bufferedReader().use { it.lines().collect(Collectors.joining("")) }
-            val titleRegex = "<title>(.*?)</title>".toRegex()
-            return titleRegex.find(contents)?.groups?.get(1)?.value
+            return htmlParser.getTitle(contents)
         }
     }
 
 }
+

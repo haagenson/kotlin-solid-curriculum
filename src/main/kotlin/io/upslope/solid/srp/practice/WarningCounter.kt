@@ -1,17 +1,6 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.practice
+package io.upslope.solid.practice
 
-fun main(args: Array<String>) {
-    val logLines = listOf(
-        "INFO 2021-01-02 app1 hello world",
-        "WARN 2021-01-02 app1 oh no!",
-        "INFO 2021-01-02 app1 hello world",
-        "DEBUG 2021-01-02 app1 hello world",
-        "WARN 2021-01-02 app1 hello world",
-    )
-
-    val warnings = WarningCounter().countWarnings(logLines)
-    println("There are $warnings warnings")
-}
+import org.springframework.stereotype.Component
 
 data class LogEntry(
     val level: String,
@@ -20,6 +9,7 @@ data class LogEntry(
     val message: String
 )
 
+@Component
 class WarningCounter {
 
     fun countWarnings(lines: List<String>): Int {

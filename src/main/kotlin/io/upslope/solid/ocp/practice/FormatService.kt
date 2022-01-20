@@ -1,4 +1,4 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.practice
+package io.upslope.solid.ocp.practice
 
 import org.springframework.stereotype.Component
 

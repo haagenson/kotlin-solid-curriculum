@@ -1,6 +1,6 @@
-package io.upslope.kotlin.kotlinsolidcurriculum.demo.practice
+package io.upslope.solid.ocp.practice
 
-import io.upslope.kotlin.kotlinsolidcurriculum.practice.FormatService
+import io.upslope.solid.ocp.practice.FormatService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
