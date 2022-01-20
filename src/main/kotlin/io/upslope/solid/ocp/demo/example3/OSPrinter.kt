@@ -1,25 +1,23 @@
-package io.upslope.solid.demo.printerexample2
+package io.upslope.solid.ocp.demo.example3
 
 import org.springframework.boot.system.SystemProperties
 
-fun main(args: Array<String>) {
-    val writers = listOf(WindowsWriter(), LinuxWriter(), MacWriter())
-    val osPrinter = OSPrinter(writers);
-    osPrinter.write("Hello, world!")
+fun writers(): List<Writer> {
+    return listOf(WindowsWriter(), LinuxWriter(), MacWriter())
 }
 
-private class OSPrinter(private val writers: List<Writer>) {
+class OSPrinter() {
     fun write(msg: String) {
-        writers.find { it.applies() }?.write(msg)
+        writers().find { it.applies() }?.write(msg)
     }
 }
 
-private interface Writer {
+interface Writer {
     fun write(msg: String)
     fun applies(): Boolean
 }
 
-private class WindowsWriter : Writer {
+class WindowsWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Windows\n")
     }
@@ -29,7 +27,7 @@ private class WindowsWriter : Writer {
     }
 }
 
-private class LinuxWriter : Writer {
+class LinuxWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Linux Land\r")
     }
@@ -39,7 +37,7 @@ private class LinuxWriter : Writer {
     }
 }
 
-private class MacWriter : Writer {
+class MacWriter : Writer {
     override fun write(msg: String) {
         print(msg + " from Mac World\n\n\n")
     }
