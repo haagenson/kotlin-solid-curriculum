@@ -10,7 +10,7 @@
 * Perform "extract method" and "extract class" refactoring
 * Identify code that requires modification to extend functionality
 * Write code that removes business logic from factories
-* (Spring) 
+* (Spring) Use features of Spring to write code that is Open/Closed
 
 ## Content
 
@@ -38,7 +38,7 @@
 
 ## Why do we care?
 
-$OLID is partly about money (Dollar sign brought you by Mike Gehard 😀). Companies want to us to reduce the amount of duplicated, unnecessary costs.
+$OLID is partly about money (dollar sign brought you by [Mike Gehard](https://twitter.com/mikegehard) 😀). Companies want to us to reduce the amount of duplicated, unnecessary costs.
 
 It's also partly about joy, and a sense of satisfaction with your job. Research has shown that high deployment frequency reduces burnout. If you can't quickly change code, you can't deploy frequently.
 
