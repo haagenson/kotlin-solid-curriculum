@@ -17,11 +17,11 @@ class TitleServiceTest {
     lateinit var titleService: TitleService
 
     @MockBean
-    lateinit var htmlParser: HTMLParser
+    lateinit var httpService: HTTPService
 
     @BeforeEach
     fun beforeEach() {
-        Mockito.`when`(htmlParser.getTitle(anyString())).thenReturn("Google")
+        Mockito.`when`(httpService.getHTML(anyString())).thenReturn("<html><head><title>Google</title></head></html>")
     }
 
     @Test

@@ -9,14 +9,13 @@ import java.util.stream.Collectors
 class TitleService {
 
     fun retrieveTitle(pathOrUrl: String): String? {
-        val url = URL(pathOrUrl)
-
-        with(url.openConnection() as HttpURLConnection) {
+        val contents = with(URL(pathOrUrl).openConnection() as HttpURLConnection) {
             requestMethod = "GET"
-            val contents = inputStream.bufferedReader().use { it.lines().collect(Collectors.joining("")) }
-            val titleRegex = "<title>(.*?)</title>".toRegex()
-            return titleRegex.find(contents)?.groups?.get(1)?.value
+            inputStream.bufferedReader().use { it.lines().collect(Collectors.joining("")) }
         }
+
+        val titleRegex = "<title>(.*?)</title>".toRegex()
+        return titleRegex.find(contents)?.groups?.get(1)?.value
     }
 
 }
